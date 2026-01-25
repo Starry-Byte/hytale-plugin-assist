@@ -1,4 +1,4 @@
-package xyz.starrybyte.hytale.assist.Utils
+package xyz.starrybyte.hytale.assist.utils
 
 import org.gradle.api.Project
 import java.io.File
@@ -10,7 +10,7 @@ fun getGameDir(project: Project): File {
 fun getGameDir(hytaleInstallDir: String?):File{
     val os = System.getProperty("os.name").lowercase()
     val installDir = when {
-        hytaleInstallDir != null -> hytaleInstallDir
+        hytaleInstallDir != null && hytaleInstallDir!="default" && hytaleInstallDir!="" -> hytaleInstallDir
         os.contains("win") -> { // Windows
             System.getenv("APPDATA")?.let { "$it/Hytale" }
                 ?: error("missingInstallDirError")
@@ -37,7 +37,7 @@ fun getServerDir(project: Project): File {
     val hytaleServerJarDir = project.findProperty("hytaleServerJarDir")?.toString()
 
     val serverFile = when {
-        hytaleServerJarDir != null -> {
+        hytaleServerJarDir != null && hytaleServerJarDir!="default" && hytaleServerJarDir!="" -> {
             File(hytaleServerJarDir)
         }
         else -> {

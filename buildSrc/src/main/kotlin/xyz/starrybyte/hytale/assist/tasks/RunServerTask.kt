@@ -1,6 +1,6 @@
 package xyz.starrybyte.hytale.assist.tasks
-import xyz.starrybyte.hytale.assist.Utils.getModsDir
-import xyz.starrybyte.hytale.assist.Utils.getServerDir
+import xyz.starrybyte.hytale.assist.utils.getModsDir
+import xyz.starrybyte.hytale.assist.utils.getServerDir
 
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.JavaExec
@@ -25,13 +25,16 @@ abstract class RunServerTask : JavaExec() {
         args(jarFile.absolutePath)
         args("--assets", "../Assets.zip")  // <-- here
         // JVM args from gradle.properties
-        val jvmArgsString = project.findProperty("serverJvmArgs")?.toString()
-            ?: "-Xms1G -Xmx4G -Dfile.encoding=UTF-8"
+        val jvmArgss = project.findProperty("hytaleServerJvmArgs")?.toString()
+        var jvmArgsString = when {
+            jvmArgss != null && jvmArgss !="default" && jvmArgss != "" -> jvmArgss
+           else-> "-Xms1G -Xmx4G -Dfile.encoding=UTF-8"
+        }
+        println("jvmArgs: $jvmArgsString")
         jvmArgsString
             .split("\\s+".toRegex())
             .let { jvmArgs(it) }
 
         super.exec()
     }
-
 }

@@ -1,5 +1,5 @@
 package xyz.starrybyte.hytale.assist.tasks
-import xyz.starrybyte.hytale.assist.Utils.getServerDir
+import xyz.starrybyte.hytale.assist.utils.getServerDir
 import xyz.starrybyte.hytale.assist.decompiler.DirectoryResultSaver
 import xyz.starrybyte.hytale.assist.decompiler.logger.GradleFernflowerLogger
 import org.gradle.api.DefaultTask
