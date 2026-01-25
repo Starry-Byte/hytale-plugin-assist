@@ -1,4 +1,4 @@
-package com.starrybyte.hytale.template.Utils
+package xyz.starrybyte.hytale.assist.Utils
 
 import org.gradle.api.Project
 import java.io.File

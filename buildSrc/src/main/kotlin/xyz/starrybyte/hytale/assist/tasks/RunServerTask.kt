@@ -1,6 +1,6 @@
-package com.starrybyte.hytale.template.tasks
-import com.starrybyte.hytale.template.Utils.getModsDir
-import com.starrybyte.hytale.template.Utils.getServerDir
+package xyz.starrybyte.hytale.assist.tasks
+import xyz.starrybyte.hytale.assist.Utils.getModsDir
+import xyz.starrybyte.hytale.assist.Utils.getServerDir
 
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.JavaExec

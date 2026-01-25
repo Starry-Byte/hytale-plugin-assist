@@ -1,4 +1,4 @@
-package com.starrybyte.hytale.template.decompiler
+package xyz.starrybyte.hytale.assist.decompiler
 
 import org.jetbrains.java.decompiler.main.extern.IResultSaver
 import java.io.File

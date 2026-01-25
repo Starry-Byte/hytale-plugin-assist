@@ -1,14 +1,14 @@
-import com.starrybyte.hytale.template.tasks.HytaleServerDecompileTask
-import com.starrybyte.hytale.template.tasks.RunServerTask
-import com.starrybyte.hytale.template.Utils.getServerDir
-import com.starrybyte.hytale.template.tasks.CopyJarToModsTask
+import xyz.starrybyte.hytale.assist.tasks.HytaleServerDecompileTask
+import xyz.starrybyte.hytale.assist.tasks.RunServerTask
+import xyz.starrybyte.hytale.assist.Utils.getServerDir
+import xyz.starrybyte.hytale.assist.tasks.CopyJarToModsTask
 
 plugins {
     kotlin("jvm") version "2.2.21"
     idea
 }
 
-group = "org.example"
+group = "com.example"
 version = "1.0"
 
 repositories {

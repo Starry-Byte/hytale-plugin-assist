@@ -1,7 +1,7 @@
-package com.starrybyte.hytale.template.tasks
-import com.starrybyte.hytale.template.Utils.getServerDir
-import com.starrybyte.hytale.template.decompiler.DirectoryResultSaver
-import com.starrybyte.hytale.template.decompiler.logger.GradleFernflowerLogger
+package xyz.starrybyte.hytale.assist.tasks
+import xyz.starrybyte.hytale.assist.Utils.getServerDir
+import xyz.starrybyte.hytale.assist.decompiler.DirectoryResultSaver
+import xyz.starrybyte.hytale.assist.decompiler.logger.GradleFernflowerLogger
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.*
 import org.jetbrains.java.decompiler.main.Fernflower
