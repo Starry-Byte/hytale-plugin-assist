@@ -43,7 +43,7 @@ tasks.register<RunServerTask>("runServer") {
 }
 
 tasks.register<CopyJarToModsTask>("copyPluginToModsFolder") {
-    dependsOn(tasks.named("jar"))
+    dependsOn(tasks.named("shadowJar"))
 }
 
 tasks.processResources {
