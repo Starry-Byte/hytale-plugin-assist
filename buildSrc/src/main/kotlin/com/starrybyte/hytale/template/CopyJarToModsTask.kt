@@ -1,0 +1,35 @@
+import com.starrybyte.hytale.template.getModsPath
+import org.gradle.api.DefaultTask
+import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.tasks.InputFile
+import org.gradle.api.tasks.OutputDirectory
+import org.gradle.api.tasks.TaskAction
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+
+abstract class CopyJarToModsTask : DefaultTask() {
+    init {
+        group = "Hytale"
+        description = "Copies the plugin to mods folder"
+    }
+    @TaskAction
+    fun copy() {
+        val jar = project.layout.buildDirectory.file("libs/${project.name}-${project.version}.jar")?.get()?.asFile?.toPath()
+        if(jar == null){
+            println("No jar found")
+            return
+        }
+        val mods = getModsPath(project).toPath()
+
+        val target = mods.resolve(jar.fileName)
+
+        Files.copy(
+            jar,
+            target,
+            StandardCopyOption.REPLACE_EXISTING
+        )
+
+        logger.lifecycle("Copied ${jar.fileName} → $mods")
+    }
+}
