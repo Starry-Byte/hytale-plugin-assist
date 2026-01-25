@@ -1,6 +1,5 @@
-package com.starrybyte.hytale.template
+package com.starrybyte.hytale.template.Utils
 
-import org.gradle.api.DefaultTask
 import org.gradle.api.Project
 import java.io.File
 
@@ -29,11 +28,11 @@ fun getGameDir(hytaleInstallDir: String?):File{
     require(gameDir.exists()) { "$missingInstallDirError: $gameDir" }
     return gameDir
 }
-fun getModsPath(project: Project): File {
+fun getModsDir(project: Project): File {
     return File(getGameDir(project),
         "install/release/package/game/latest/Server/mods")
 }
-fun getServerPath(project: Project): File {
+fun getServerDir(project: Project): File {
 
     val hytaleServerJarDir = project.findProperty("hytaleServerJarDir")?.toString()
 

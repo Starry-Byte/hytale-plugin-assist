@@ -1,9 +1,6 @@
-import com.starrybyte.hytale.template.getModsPath
+package com.starrybyte.hytale.template.tasks;
+import com.starrybyte.hytale.template.Utils.getModsDir
 import org.gradle.api.DefaultTask
-import org.gradle.api.file.RegularFileProperty
-import org.gradle.api.file.DirectoryProperty
-import org.gradle.api.tasks.InputFile
-import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
@@ -20,7 +17,7 @@ abstract class CopyJarToModsTask : DefaultTask() {
             println("No jar found")
             return
         }
-        val mods = getModsPath(project).toPath()
+        val mods = getModsDir(project).toPath()
 
         val target = mods.resolve(jar.fileName)
 

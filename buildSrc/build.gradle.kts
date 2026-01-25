@@ -1,6 +1,3 @@
-import org.gradle.kotlin.dsl.invoke
-import org.gradle.kotlin.dsl.main
-
 plugins {
     `kotlin-dsl`
 }

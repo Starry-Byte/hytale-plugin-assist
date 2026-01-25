@@ -1,8 +1,9 @@
-package com.starrybyte.hytale.template
-import org.gradle.api.tasks.InputFile
+package com.starrybyte.hytale.template.tasks
+import com.starrybyte.hytale.template.Utils.getModsDir
+import com.starrybyte.hytale.template.Utils.getServerDir
+
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.JavaExec
-import java.io.File
 
 abstract class RunServerTask : JavaExec() {
 
@@ -14,9 +15,9 @@ abstract class RunServerTask : JavaExec() {
 
     @TaskAction
     override fun exec() {
-        val modsPath = getModsPath(project)
+        val modsPath = getModsDir(project)
 
-        val jarFile = getServerPath(project)
+        val jarFile = getServerDir(project)
         // Run exactly like: java -jar hytale-server.jar
         workingDir = jarFile.parentFile
         classpath = project.files(jarFile)
@@ -32,6 +33,5 @@ abstract class RunServerTask : JavaExec() {
 
         super.exec()
     }
-    // Detect Hytale installation directory automatically (cross-platform)
 
 }

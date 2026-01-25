@@ -1,4 +1,5 @@
-package com.starrybyte.hytale.template
+package com.starrybyte.hytale.template.decompiler
+
 import org.jetbrains.java.decompiler.main.extern.IResultSaver
 import java.io.File
 import java.io.IOException
@@ -31,9 +32,10 @@ class DirectoryResultSaver(
         file.writeText(content)
     }
 
-    override fun createArchive(path: String, archiveName: String, manifest: Manifest?) {
-        // No-op: Gradle Zip task handles archives
+    override fun createArchive(path: String?, archiveName: String?, manifest: Manifest?) {
+        // No-op
     }
+
 
     override fun saveDirEntry(path: String, archiveName: String, entryName: String) {
         // No-op
